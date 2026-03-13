@@ -84,7 +84,7 @@ def sync_biotime_employees():
                     "company": default_company,
                     "status": erp_status,
                     "relieving_date": relieving_date,   
-                    "naming_series": "HR-EMP-",
+                    "naming_series": "EMP.#",
                     "biotime_emp_code": emp_code
                 }
 

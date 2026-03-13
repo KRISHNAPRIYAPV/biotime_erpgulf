@@ -81,6 +81,7 @@ def run_biotime_attendance():
             )
             response.raise_for_status()
             payload = response.json()
+            logger.info(payload)
             rows = payload.get("data") or []
 
         except Exception:
@@ -92,9 +93,12 @@ def run_biotime_attendance():
 
         for row in rows:
             try:
-                emp_code = row.get("emp_code")
+                logger.info(f"BioTime Row: {row}")
+                # emp_code = row.get("emp_code")
+                emp_code = str(row.get("emp_code")).lstrip("0")
                 punch_time = row.get("punch_time")
-                punch_state = row.get("punch_state_display")
+                # punch_state = row.get("punch_state_display")
+                punch_state = row.get("punch_state_display") or row.get("punch_state")
                 area_alias = row.get("area_alias") or None
 
                 if not (emp_code and punch_time and punch_state):
@@ -118,7 +122,8 @@ def run_biotime_attendance():
                     skipped += 1
                     continue
 
-                log_type = "IN" if punch_state == "Check In" else "OUT"
+                # log_type = "IN" if punch_state == "Check In" else "OUT"
+                log_type = "IN" if punch_state in ["Check In", "0"] else "OUT"
 
                 try:
                     frappe.get_doc(
