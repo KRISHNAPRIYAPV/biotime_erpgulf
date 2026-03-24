@@ -1,12 +1,12 @@
 [
  {
-  "biotime_token": "",
-  "biotime_url": "",
+  "biotime_token": "aeb8e19be9cdf4da944acd7962bb8d80b5c7a2ec",
+  "biotime_url": "http://gshomanztk2.ath.cx:3333",
   "docstatus": 0,
   "doctype": "BioTime Settings",
-  "last_synced_datetime": "",
-  "modified": "2026-02-04 13:56:07.734893",
+  "last_synced_datetime": "2026-03-23T16:16:08.321532",
+  "modified": "2026-03-23 16:16:08.782188",
   "name": "BioTime Settings",
-  "start_year": 0
+  "start_year": 2026
  }
 ]
